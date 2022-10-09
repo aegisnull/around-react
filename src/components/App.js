@@ -2,6 +2,7 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import EditProfilePopup from "./EditProfilePopup";
+import NewCardPopup from "./NewCardPopup";
 
 function App() {
   return (
@@ -10,45 +11,9 @@ function App() {
       <Main />
       <Footer />
       <EditProfilePopup />
-      {/*     <div className="modal">
-        <div className="modal__container">
-          <h2 className="modal__title">Edit profile</h2>
-          <form className="modal__form modal__form_profile" name="editProfile">
-            <input
-              className="modal__input modal__profile-name"
-              id="edit-profile-name"
-              type="text"
-              placeholder="username"
-              minlength="2"
-              maxlength="40"
-              required
-            />
-            <span className="modal__error" id="edit-profile-name-error">
-              Por favor, rellena este campo.
-            </span>
-            <input
-              className="modal__input modal__profile-title"
-              id="edit-profile-title"
-              type="text"
-              placeholder="usertitle"
-              minlength="2"
-              maxlength="200"
-              required
-            />
-            <span className="modal__error" id="edit-profile-title-error">
-              Por favor, rellena este campo.
-            </span>
-            <button
-              type="submit"
-              className="modal__form-submit modal__profile-edit"
-            >
-              Guardar
-            </button>
-          </form>
-          <button className="modal__close-button modal__close"></button>
-        </div>
-      </div> */}
-      <div className="modal modal-post">
+      <NewCardPopup />
+
+      {/*       <div className="modal modal-post">
         <div className="modal__container">
           <h2 className="modal__title">Nuevo Lugar</h2>
           <form className="modal__form modal__form_place" name="newPlace">
@@ -99,7 +64,7 @@ function App() {
           </form>
           <button className="modal__close-button modal__delete-close"></button>
         </div>
-      </div>
+      </div> */}
       {/* <div className="modal modal-profile">
         <div className="modal__container">
           <h2 className="modal__title">Cambiar foto de perfil</h2>
