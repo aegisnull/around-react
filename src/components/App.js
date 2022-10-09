@@ -1,15 +1,11 @@
-import logo from "./logo.svg";
+import logo from "../images/logo.svg";
 
 function App() {
   return (
     <div className="page__content">
       <div className="main__container">
         <header className="header">
-          <img
-            className="header__logo"
-            src="<%=require('./images/logo.svg')%>"
-            alt="Logo Around"
-          />
+          <img className="header__logo" src={logo} alt="Logo Around" />
           <div className="header__line"></div>
         </header>
         <section className="profile">
