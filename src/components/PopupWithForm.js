@@ -9,7 +9,9 @@ function PopupWithForm(props) {
         >
           {props.children}
         </form>
-        <button className="modal__close-button modal__close"></button>
+        <button
+          className={`modal__close-button modal__close_${props.name}`}
+        ></button>
       </div>
     </div>
   );
