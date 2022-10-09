@@ -20,13 +20,19 @@ function Main() {
         <div className="profile__container-left">
           <img className="profile__img" src="" alt="Profile picture" />
           <div className="profile__overlay">
-            <span className="profile__img-button"></span>
+            <span
+              onClick={handleEditAvatarClick}
+              className="profile__img-button"
+            ></span>
           </div>
         </div>
         <div className="profile__container-middle">
           <div className="profile__subcontainer-top">
             <h1 className="profile__name">Luis</h1>
-            <button className="profile__edit-button">
+            <button
+              className="profile__edit-button"
+              onClick={handleEditProfileClick}
+            >
               <img
                 className="profile__edit-icon"
                 src={edit}
@@ -39,7 +45,10 @@ function Main() {
           </div>
         </div>
         <div className="profile__container-right">
-          <button className="profile__post-button">
+          <button
+            className="profile__post-button"
+            onClick={handleAddPlaceClick}
+          >
             <img className="profile__post-icon" src={post} alt="post button" />
           </button>
         </div>
