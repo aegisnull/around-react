@@ -1,19 +1,7 @@
 import edit from "../images/edit.svg";
 import post from "../images/post.svg";
 
-function Main() {
-  function handleEditAvatarClick() {
-    document.querySelector(".modal-avatar").classList.add("modal_active");
-  }
-
-  function handleEditProfileClick() {
-    document.querySelector(".modal-profile").classList.add("modal_active");
-  }
-
-  function handleAddPlaceClick() {
-    document.querySelector(".modal-post").classList.add("modal_active");
-  }
-
+function Main({ onEditProfileClick, onAddPlaceClick, onEditAvatarClick }) {
   return (
     <main className="main__container">
       <section className="profile">
@@ -21,7 +9,7 @@ function Main() {
           <img className="profile__img" src="" alt="Profile avatar" />
           <div className="profile__overlay">
             <span
-              onClick={handleEditAvatarClick}
+              onClick={onEditAvatarClick}
               className="profile__img-button"
             ></span>
           </div>
@@ -31,7 +19,7 @@ function Main() {
             <h1 className="profile__name">Luis</h1>
             <button
               className="profile__edit-button"
-              onClick={handleEditProfileClick}
+              onClick={onEditProfileClick}
             >
               <img
                 className="profile__edit-icon"
@@ -45,10 +33,7 @@ function Main() {
           </div>
         </div>
         <div className="profile__container-right">
-          <button
-            className="profile__post-button"
-            onClick={handleAddPlaceClick}
-          >
+          <button className="profile__post-button" onClick={onAddPlaceClick}>
             <img className="profile__post-icon" src={post} alt="post button" />
           </button>
         </div>

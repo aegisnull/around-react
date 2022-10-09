@@ -6,10 +6,26 @@ import NewCardPopup from "./NewCardPopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 
 function App() {
+  function handleEditAvatarClick() {
+    document.querySelector(".modal-avatar").classList.add("modal_active");
+  }
+
+  function handleEditProfileClick() {
+    document.querySelector(".modal-profile").classList.add("modal_active");
+  }
+
+  function handleAddPlaceClick() {
+    document.querySelector(".modal-post").classList.add("modal_active");
+  }
+
   return (
     <div className="page__content">
       <Header />
-      <Main />
+      <Main
+        onEditProfileClick={handleEditProfileClick}
+        onAddPlaceClick={handleAddPlaceClick}
+        onEditAvatarClick={handleEditAvatarClick}
+      />
       <Footer />
       <EditProfilePopup />
       <NewCardPopup />
