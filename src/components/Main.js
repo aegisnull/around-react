@@ -18,7 +18,7 @@ function Main() {
     <main className="main__container">
       <section className="profile">
         <div className="profile__container-left">
-          <img className="profile__img" src="" alt="Profile picture" />
+          <img className="profile__img" src="" alt="Profile avatar" />
           <div className="profile__overlay">
             <span
               onClick={handleEditAvatarClick}
