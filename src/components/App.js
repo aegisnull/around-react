@@ -1,13 +1,10 @@
-import logo from "../images/logo.svg";
+import Header from "./Header";
 
 function App() {
   return (
     <div className="page__content">
       <div className="main__container">
-        <header className="header">
-          <img className="header__logo" src={logo} alt="Logo Around" />
-          <div className="header__line"></div>
-        </header>
+        <Header />
         <section className="profile">
           <div className="profile__container-left">
             <img className="profile__img" src="" alt="Profile picture" />
