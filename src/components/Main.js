@@ -1,3 +1,6 @@
+import edit from "../images/edit.svg";
+import post from "../images/post.svg";
+
 function Main() {
   return (
     <main className="main__container">
@@ -14,7 +17,7 @@ function Main() {
             <button className="profile__edit-button">
               <img
                 className="profile__edit-icon"
-                src="<%=require('./images/edit.svg')%>"
+                src={edit}
                 alt="edit button"
               />
             </button>
@@ -25,11 +28,7 @@ function Main() {
         </div>
         <div className="profile__container-right">
           <button className="profile__post-button">
-            <img
-              className="profile__post-icon"
-              src="<%=require('./images/post.svg')%>"
-              alt="post button"
-            />
+            <img className="profile__post-icon" src={post} alt="post button" />
           </button>
         </div>
       </section>
