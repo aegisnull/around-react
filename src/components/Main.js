@@ -3,11 +3,11 @@ import post from "../images/post.svg";
 
 function Main() {
   function handleEditAvatarClick() {
-    document.querySelector(".modal-profile").classList.add("modal_active");
+    document.querySelector(".modal-avatar").classList.add("modal_active");
   }
 
   function handleEditProfileClick() {
-    document.querySelector(".modal").classList.add("modal_active");
+    document.querySelector(".modal-profile").classList.add("modal_active");
   }
 
   function handleAddPlaceClick() {

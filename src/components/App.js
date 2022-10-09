@@ -1,6 +1,7 @@
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
+import EditProfilePopup from "./EditProfilePopup";
 
 function App() {
   return (
@@ -8,7 +9,8 @@ function App() {
       <Header />
       <Main />
       <Footer />
-      <div className="modal">
+      <EditProfilePopup />
+      {/*     <div className="modal">
         <div className="modal__container">
           <h2 className="modal__title">Edit profile</h2>
           <form className="modal__form modal__form_profile" name="editProfile">
@@ -45,7 +47,7 @@ function App() {
           </form>
           <button className="modal__close-button modal__close"></button>
         </div>
-      </div>
+      </div> */}
       <div className="modal modal-post">
         <div className="modal__container">
           <h2 className="modal__title">Nuevo Lugar</h2>
@@ -98,7 +100,7 @@ function App() {
           <button className="modal__close-button modal__delete-close"></button>
         </div>
       </div>
-      <div className="modal modal-profile">
+      {/* <div className="modal modal-profile">
         <div className="modal__container">
           <h2 className="modal__title">Cambiar foto de perfil</h2>
           <form
@@ -121,7 +123,7 @@ function App() {
           </form>
           <button className="modal__close-button modal-profile__close"></button>
         </div>
-      </div>
+      </div> */}
       <template id="cards">
         <div className="card__container">
           <button className="card__remove-button"></button>

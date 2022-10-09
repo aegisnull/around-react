@@ -5,7 +5,7 @@ function PopupWithForm(props) {
         <h2 className="modal__title">{props.title}</h2>
         <form
           className={`modal__form modal__form_${props.name}`}
-          name={props.name}
+          name={props.formName}
         >
           {props.children}
         </form>
@@ -16,3 +16,5 @@ function PopupWithForm(props) {
     </div>
   );
 }
+
+export default PopupWithForm;
