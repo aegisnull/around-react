@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -39,9 +40,7 @@ function App() {
         </section>
         <section className="cards"></section>
 
-        <section className="footer">
-          <h2 className="footer__copyright">© 2021 Alrededor de los EEUU</h2>
-        </section>
+        <Footer />
       </div>
       <div className="modal">
         <div className="modal__container">
