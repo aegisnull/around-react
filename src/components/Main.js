@@ -6,7 +6,11 @@ function Main({ onEditProfileClick, onAddPlaceClick, onEditAvatarClick }) {
     <main className="main__container">
       <section className="profile">
         <div className="profile__container-left">
-          <img className="profile__img" src="" alt="Profile avatar" />
+          <img
+            className="profile__img"
+            src="https://avatars.githubusercontent.com/u/27663011?v=4"
+            alt="Profile avatar"
+          />
           <div className="profile__overlay">
             <span
               onClick={onEditAvatarClick}
