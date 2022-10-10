@@ -8,7 +8,7 @@ function Card({ cardData }) {
           <h2 className="card__title">{cardData.name}</h2>
           <div className="card__like-container">
             <button className="card__like-button"></button>
-            <span className="card__like-counter">1</span>
+            <span className="card__like-counter">{cardData.likes.length}</span>
           </div>
         </div>
       </div>
