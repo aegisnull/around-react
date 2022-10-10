@@ -1,12 +1,13 @@
 import PopupWithForm from "./PopupWithForm";
 
-function EditAvatarPopup({ isOpen }) {
+function EditAvatarPopup({ isOpen, onClose }) {
   return (
     <PopupWithForm
       name="avatar"
       title="Cambiar foto de perfil"
       formName="newProfileImg"
       isOpen={isOpen}
+      onClose={onClose}
     >
       <input
         className="modal__input modal__profile-url"

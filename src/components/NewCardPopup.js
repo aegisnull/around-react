@@ -1,12 +1,13 @@
 import PopupWithForm from "./PopupWithForm";
 
-function NewCardPopup({ isOpen }) {
+function NewCardPopup({ isOpen, onClose }) {
   return (
     <PopupWithForm
       name="post"
       title="Nuevo Lugar"
       formName="newPlace"
       isOpen={isOpen}
+      onClose={onClose}
     >
       <input
         className="modal__input modal__profile-cardtitle"

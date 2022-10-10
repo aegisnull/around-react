@@ -25,6 +25,12 @@ function App() {
     setIsAddPlacePopupOpen(true);
   }
 
+  function closeAllPopups() {
+    setIsEditAvatarPopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+  }
+
   return (
     <div className="page__content">
       <Header />
@@ -34,9 +40,15 @@ function App() {
         onEditAvatarClick={handleEditAvatarClick}
       />
       <Footer />
-      <EditProfilePopup isOpen={isEditProfilePopupOpen} />
-      <NewCardPopup isOpen={isAddPlacePopupOpen} />
-      <EditAvatarPopup isOpen={isEditAvatarPopupOpen} />
+      <EditProfilePopup
+        isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}
+      />
+      <NewCardPopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
+      <EditAvatarPopup
+        isOpen={isEditAvatarPopupOpen}
+        onClose={closeAllPopups}
+      />
 
       <template id="cards">
         <div className="card__container">
