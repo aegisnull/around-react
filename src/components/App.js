@@ -20,7 +20,7 @@ function App() {
   }
 
   function handleEditProfileClick() {
-    document.querySelector(".modal-profile").classList.add("modal_active");
+    setIsEditProfilePopupOpen(true);
   }
 
   function handleAddPlaceClick() {
@@ -36,9 +36,9 @@ function App() {
         onEditAvatarClick={handleEditAvatarClick}
       />
       <Footer />
-      <EditProfilePopup />
-      <NewCardPopup />
-      <EditAvatarPopup />
+      <EditProfilePopup isOpen={isEditProfilePopupOpen} />
+      <NewCardPopup isOpen={isAddPlacePopupOpen} />
+      <EditAvatarPopup isOpen={isEditAvatarPopupOpen} />
 
       <template id="cards">
         <div className="card__container">

@@ -1,8 +1,13 @@
 import PopupWithForm from "./PopupWithForm";
 
-function EditProfilePopup() {
+function EditProfilePopup({ isOpen }) {
   return (
-    <PopupWithForm name="profile" title="Edit profile" formName="editProfile">
+    <PopupWithForm
+      name="profile"
+      title="Edit profile"
+      formName="editProfile"
+      isOpen={isOpen}
+    >
       <input
         className="modal__input modal__profile-name"
         id="edit-profile-name"
