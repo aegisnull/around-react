@@ -9,14 +9,12 @@ import React from "react";
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
     React.useState(false);
-
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
-
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
     React.useState(false);
 
   function handleEditAvatarClick() {
-    document.querySelector(".modal-avatar").classList.add("modal_active");
+    setIsEditAvatarPopupOpen(true);
   }
 
   function handleEditProfileClick() {
