@@ -1,16 +1,31 @@
 import edit from "../images/edit.svg";
 import post from "../images/post.svg";
+import api from "../utils/api";
+import React from "react";
 
 function Main({ onEditProfileClick, onAddPlaceClick, onEditAvatarClick }) {
+  const [userName, setUserName] = React.useState([]);
+  const [userDescription, setUserDescription] = React.useState([]);
+  const [userAvatar, setUserAvatar] = React.useState([]);
+
+  React.useEffect(() => {
+    api
+      .getUserInfo()
+      .then((data) => {
+        setUserName(data.name);
+        setUserDescription(data.about);
+        setUserAvatar(data.avatar);
+      })
+      .catch((err) => {
+        console.log("Error. La solicitud ha fallado");
+      });
+  }, []);
+
   return (
     <main className="main__container">
       <section className="profile">
         <div className="profile__container-left">
-          <img
-            className="profile__img"
-            src="https://avatars.githubusercontent.com/u/27663011?v=4"
-            alt="Profile avatar"
-          />
+          <img className="profile__img" src={userAvatar} alt="Profile avatar" />
           <div className="profile__overlay">
             <span
               onClick={onEditAvatarClick}
@@ -20,7 +35,7 @@ function Main({ onEditProfileClick, onAddPlaceClick, onEditAvatarClick }) {
         </div>
         <div className="profile__container-middle">
           <div className="profile__subcontainer-top">
-            <h1 className="profile__name">Luis</h1>
+            <h1 className="profile__name">{userName}</h1>
             <button
               className="profile__edit-button"
               onClick={onEditProfileClick}
@@ -33,7 +48,7 @@ function Main({ onEditProfileClick, onAddPlaceClick, onEditAvatarClick }) {
             </button>
           </div>
           <div className="profile__subcontainer-bottom">
-            <h2 className="profile__title">Front-end</h2>
+            <h2 className="profile__title">{userDescription}</h2>
           </div>
         </div>
         <div className="profile__container-right">
