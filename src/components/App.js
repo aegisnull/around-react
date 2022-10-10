@@ -24,7 +24,7 @@ function App() {
   }
 
   function handleAddPlaceClick() {
-    document.querySelector(".modal-post").classList.add("modal_active");
+    setIsAddPlacePopupOpen(true);
   }
 
   return (
