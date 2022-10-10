@@ -7,6 +7,7 @@ function Main({ onEditProfileClick, onAddPlaceClick, onEditAvatarClick }) {
   const [userName, setUserName] = React.useState([]);
   const [userDescription, setUserDescription] = React.useState([]);
   const [userAvatar, setUserAvatar] = React.useState([]);
+  const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
     api
@@ -15,6 +16,17 @@ function Main({ onEditProfileClick, onAddPlaceClick, onEditAvatarClick }) {
         setUserName(data.name);
         setUserDescription(data.about);
         setUserAvatar(data.avatar);
+      })
+      .catch((err) => {
+        console.log("Error. La solicitud ha fallado");
+      });
+  }, []);
+
+  React.useEffect(() => {
+    api
+      .getInitialCards()
+      .then((data) => {
+        setCards(data);
       })
       .catch((err) => {
         console.log("Error. La solicitud ha fallado");
