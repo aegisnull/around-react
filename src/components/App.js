@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import EditProfilePopup from "./EditProfilePopup";
 import NewCardPopup from "./NewCardPopup";
 import EditAvatarPopup from "./EditAvatarPopup";
+import React from "react";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
