@@ -11,3 +11,7 @@
 @import url(./blocks/modal-post/modal-post.css);
 @import url(./blocks/popup/popup.css);
 @import url(./blocks/page/page.css);
+
+html {
+  background-color: black;
+}

@@ -2,6 +2,7 @@ import edit from "../images/edit.svg";
 import post from "../images/post.svg";
 import api from "../utils/api";
 import React from "react";
+import Card from "./Card";
 
 function Main({ onEditProfileClick, onAddPlaceClick, onEditAvatarClick }) {
   const [userName, setUserName] = React.useState([]);
@@ -69,7 +70,11 @@ function Main({ onEditProfileClick, onAddPlaceClick, onEditAvatarClick }) {
           </button>
         </div>
       </section>
-      <section className="cards"></section>
+      <section className="cards">
+        {cards.map((card) => (
+          <Card cardData={card} />
+        ))}
+      </section>
     </main>
   );
 }
