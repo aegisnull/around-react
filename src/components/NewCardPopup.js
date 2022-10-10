@@ -14,8 +14,8 @@ function NewCardPopup({ isOpen, onClose }) {
         id="new-place-title"
         type="text"
         placeholder="Título"
-        minlength="2"
-        maxlength="30"
+        minLength="2"
+        maxLength="30"
         required
       />
       <span className="modal__error" id="new-place-title-error">

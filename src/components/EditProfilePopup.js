@@ -14,8 +14,8 @@ function EditProfilePopup({ isOpen, onClose }) {
         id="edit-profile-name"
         type="text"
         placeholder="username"
-        minlength="2"
-        maxlength="40"
+        minLength="2"
+        maxLength="40"
         required
       />
       <span className="modal__error" id="edit-profile-name-error">
@@ -26,8 +26,8 @@ function EditProfilePopup({ isOpen, onClose }) {
         id="edit-profile-title"
         type="text"
         placeholder="usertitle"
-        minlength="2"
-        maxlength="200"
+        minLength="2"
+        maxLength="200"
         required
       />
       <span className="modal__error" id="edit-profile-title-error">
