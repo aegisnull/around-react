@@ -45,6 +45,7 @@ function App() {
         onEditProfileClick={handleEditProfileClick}
         onAddPlaceClick={handleAddPlaceClick}
         onEditAvatarClick={handleEditAvatarClick}
+        onCardClick={handleCardClick}
       />
       <Footer />
       <EditProfilePopup

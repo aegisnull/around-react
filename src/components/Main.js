@@ -4,7 +4,12 @@ import api from "../utils/api";
 import React from "react";
 import Card from "./Card";
 
-function Main({ onEditProfileClick, onAddPlaceClick, onEditAvatarClick }) {
+function Main({
+  onEditProfileClick,
+  onAddPlaceClick,
+  onEditAvatarClick,
+  onCardClick,
+}) {
   const [userName, setUserName] = React.useState([]);
   const [userDescription, setUserDescription] = React.useState([]);
   const [userAvatar, setUserAvatar] = React.useState([]);
