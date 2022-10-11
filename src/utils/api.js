@@ -20,9 +20,6 @@ class Api {
       .then(this._checkResponse)
       .then((data) => {
         return data;
-      })
-      .catch((err) => {
-        console.log("Error. La solicitud ha fallado");
       });
   }
 
@@ -35,9 +32,6 @@ class Api {
       .then(this._checkResponse)
       .then((data) => {
         return data;
-      })
-      .catch((err) => {
-        console.log("Error. La solicitud ha fallado");
       });
   }
 }
