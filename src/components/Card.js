@@ -4,7 +4,7 @@ function Card({ cardData, onCardClick }) {
   }
 
   return (
-    <div className="card__container">
+    <div className="card">
       <button className="card__remove-button" />
       <img
         className="card__img"
