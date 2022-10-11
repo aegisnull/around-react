@@ -5,7 +5,7 @@ function Card({ cardData, onCardClick }) {
 
   return (
     <div className="card__container">
-      <button className="card__remove-button"></button>
+      <button className="card__remove-button" />
       <img
         className="card__img"
         src={cardData.link}
@@ -15,7 +15,7 @@ function Card({ cardData, onCardClick }) {
       <div className="card__text-container">
         <h2 className="card__title">{cardData.name}</h2>
         <div className="card__like-container">
-          <button className="card__like-button"></button>
+          <button className="card__like-button" />
           <span className="card__like-counter">{cardData.likes.length}</span>
         </div>
       </div>
