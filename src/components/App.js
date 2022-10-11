@@ -52,7 +52,11 @@ function App() {
         onCardClick={handleCardClick}
       />
       <Footer />
-      <ImagePopup isOpen={isImagePopupOpen} card={selectedCard} />
+      <ImagePopup
+        isOpen={isImagePopupOpen}
+        onClose={closeAllPopups}
+        card={selectedCard}
+      />
       <EditProfilePopup
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
