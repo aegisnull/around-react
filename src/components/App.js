@@ -14,7 +14,7 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
     React.useState(false);
 
-  const [selectedCard, setSelectedCard] = React.useState([]);
+  const [selectedCard, setSelectedCard] = React.useState(false);
 
   function handleCardClick() {
     setSelectedCard(true);
