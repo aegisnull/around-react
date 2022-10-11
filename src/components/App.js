@@ -5,6 +5,7 @@ import EditProfilePopup from "./EditProfilePopup";
 import NewCardPopup from "./NewCardPopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import React from "react";
+import ImagePopup from "./ImagePopup";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -48,6 +49,7 @@ function App() {
         onCardClick={handleCardClick}
       />
       <Footer />
+      <ImagePopup />
       <EditProfilePopup
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}

@@ -1,4 +1,4 @@
-function ImagePopup() {
+function ImagePopup(props) {
   return (
     <div id="lightbox" className="popup">
       <img className="popup__image" src=" " alt=" " />
