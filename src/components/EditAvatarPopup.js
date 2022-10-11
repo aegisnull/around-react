@@ -8,6 +8,8 @@ function EditAvatarPopup({ isOpen, onClose }) {
       formName="newProfileImg"
       isOpen={isOpen}
       onClose={onClose}
+      formSubmitText="Guardar"
+      formSubmitClass="form-profile"
     >
       <input
         className="modal__input modal__profile-url"
@@ -19,9 +21,6 @@ function EditAvatarPopup({ isOpen, onClose }) {
       <span className="modal__error" id="new-profile-url-error">
         Por favor, rellena este campo.
       </span>
-      <button className="modal__form-submit modal__form-profile">
-        Guardar
-      </button>
     </PopupWithForm>
   );
 }

@@ -12,6 +12,12 @@ function PopupWithForm(props) {
           name={props.formName}
         >
           {props.children}
+          <button
+            type="submit"
+            className={`modal__form-submit modal__${props.formSubmitClass}`}
+          >
+            {props.formSubmitText}
+          </button>
         </form>
         <button
           className={`modal__close-button modal__close_${props.name}`}

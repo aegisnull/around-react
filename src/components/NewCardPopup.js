@@ -8,6 +8,8 @@ function NewCardPopup({ isOpen, onClose }) {
       formName="newPlace"
       isOpen={isOpen}
       onClose={onClose}
+      formSubmitText="Crear"
+      formSubmitClass="form-create"
     >
       <input
         className="modal__input modal__profile-cardtitle"
@@ -31,7 +33,6 @@ function NewCardPopup({ isOpen, onClose }) {
       <span className="modal__error" id="new-place-url-error">
         Por favor, rellena este campo.
       </span>
-      <button className="modal__form-submit modal__form-create">Crear</button>
     </PopupWithForm>
   );
 }

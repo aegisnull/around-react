@@ -8,6 +8,8 @@ function EditProfilePopup({ isOpen, onClose }) {
       formName="editProfile"
       isOpen={isOpen}
       onClose={onClose}
+      formSubmitText="Guardar"
+      formSubmitClass="profile-edit"
     >
       <input
         className="modal__input modal__profile-name"
@@ -33,9 +35,6 @@ function EditProfilePopup({ isOpen, onClose }) {
       <span className="modal__error" id="edit-profile-title-error">
         Por favor, rellena este campo.
       </span>
-      <button type="submit" className="modal__form-submit modal__profile-edit">
-        Guardar
-      </button>
     </PopupWithForm>
   );
 }
