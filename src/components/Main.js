@@ -77,7 +77,7 @@ function Main({
       </section>
       <section className="cards">
         {cards.map((card) => (
-          <Card cardData={card} onCardClick={onCardClick} />
+          <Card cardData={card} onCardClick={onCardClick} key={card._id} />
         ))}
       </section>
     </main>
