@@ -4,17 +4,20 @@ class Api {
     this._headers = headers;
   }
 
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error ${res.status}`);
+  }
+
   //GET https://around.nomoreparties.co/v1/groupId/users/me
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       headers: this._headers,
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-      })
+      .then(this._checkResponse)
       .then((data) => {
         return data;
       })
@@ -29,11 +32,7 @@ class Api {
       method: "GET",
       headers: this._headers,
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-      })
+      .then(this._checkResponse)
       .then((data) => {
         return data;
       })
