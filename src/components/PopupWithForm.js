@@ -16,7 +16,7 @@ function PopupWithForm(props) {
         <button
           className={`modal__close-button modal__close_${props.name}`}
           onClick={props.onClose}
-        ></button>
+        />
       </div>
     </div>
   );
