@@ -17,6 +17,8 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState({});
   const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
 
+  const [currentUser, setCurrentUser] = useState({});
+
   function handleCardClick(cardData) {
     setSelectedCard(cardData);
     setIsImagePopupOpen(true);
