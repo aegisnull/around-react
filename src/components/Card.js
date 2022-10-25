@@ -11,11 +11,13 @@ function Card({ cardData, onCardClick }) {
     isOwn ? "card__remove-button_active" : "card__remove-button"
   }`;
 
-  /*   // Verifica si el usuario actual le dio "like" a la tarjeta
-  const isLiked = card.likes.some((i) => i._id === currentUser._id);
+  // Verifica si el usuario actual le dio "like" a la tarjeta
+  const isLiked = cardData.likes.some((i) => i._id === currentUser._id);
 
   // Crea una variable que después establecerás en `className` para el botón like
-  const cardLikeButtonClassName = `...`; */
+  const cardLikeButtonClassName = `card__like-button ${
+    isLiked ? "card__like-button_active" : "card__like-button"
+  }`;
 
   function handleClick() {
     onCardClick(cardData);
@@ -33,7 +35,7 @@ function Card({ cardData, onCardClick }) {
       <div className="card__text-container">
         <h2 className="card__title">{cardData.name}</h2>
         <div className="card__like-container">
-          <button className="card__like-button" />
+          <button className={cardLikeButtonClassName} />
           <span className="card__like-counter">{cardData.likes.length}</span>
         </div>
       </div>
