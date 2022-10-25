@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Card({ cardData, onCardClick, onLikeClick }) {
+function Card({ cardData, onCardClick, onCardLike }) {
   const currentUser = useContext(CurrentUserContext);
   // Verificando si el usuario actual es el propietario de la tarjeta actual
   const isOwn = cardData.owner._id === currentUser._id;
@@ -35,7 +35,7 @@ function Card({ cardData, onCardClick, onLikeClick }) {
       <div className="card__text-container">
         <h2 className="card__title">{cardData.name}</h2>
         <div className="card__like-container">
-          <button className={cardLikeButtonClassName} onClick={onLikeClick} />
+          <button className={cardLikeButtonClassName} onClick={onCardLike} />
           <span className="card__like-counter">{cardData.likes.length}</span>
         </div>
       </div>

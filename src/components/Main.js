@@ -98,7 +98,7 @@ function Main({
             cardData={card}
             onCardClick={onCardClick}
             key={card._id}
-            onLikeClick={handleCardLike}
+            onCardLike={handleCardLike}
           />
         ))}
       </section>
