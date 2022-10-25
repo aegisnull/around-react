@@ -3,6 +3,7 @@ import post from "../images/post.svg";
 import api from "../utils/api";
 import React from "react";
 import Card from "./Card";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function Main({
   onEditProfileClick,
@@ -14,6 +15,8 @@ function Main({
   const [userDescription, setUserDescription] = React.useState("");
   const [userAvatar, setUserAvatar] = React.useState("");
   const [cards, setCards] = React.useState([]);
+
+  const currentUser = useContext(CurrentUserContext);
 
   React.useEffect(() => {
     api
