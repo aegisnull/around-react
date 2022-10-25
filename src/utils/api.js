@@ -34,6 +34,17 @@ class Api {
         return data;
       });
   }
+
+  changeLikecardStatus(cardId, isLiked) {
+    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+      method: isLiked ? "PUT" : "DELETE",
+      headers: this._headers,
+    })
+      .then(this._checkResponse)
+      .then((data) => {
+        return data;
+      });
+  }
 }
 
 const api = new Api({
