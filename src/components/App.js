@@ -6,6 +6,7 @@ import NewCardPopup from "./NewCardPopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import React from "react";
 import ImagePopup from "./ImagePopup";
+import api from "../utils/api";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -17,7 +18,17 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState({});
   const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
 
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = React.useState({});
+  React.useEffect(() => {
+    api
+      .getUserInfo()
+      .then((res) => {
+        setCurrentUser(res);
+      })
+      .catch((err) => {
+        console.log("Error. La solicitud ha fallado");
+      });
+  }, []);
 
   function handleCardClick(cardData) {
     setSelectedCard(cardData);
