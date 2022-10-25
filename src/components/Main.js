@@ -53,6 +53,17 @@ function Main({
       });
   }
 
+  function handleCardDelete(card) {
+    api
+      .deleteCard(card._id)
+      .then(() => {
+        setCards((state) => state.filter((c) => c._id !== card._id));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <main className="main__container">
       <section className="profile">
@@ -100,6 +111,7 @@ function Main({
             onCardClick={onCardClick}
             key={card._id}
             onCardLike={handleCardLike}
+            onCardDelete={handleCardDelete}
           />
         ))}
       </section>

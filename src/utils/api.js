@@ -45,6 +45,17 @@ class Api {
         return data;
       });
   }
+
+  deleteCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this._headers,
+    })
+      .then(this._checkResponse)
+      .then((data) => {
+        return data;
+      });
+  }
 }
 
 const api = new Api({
