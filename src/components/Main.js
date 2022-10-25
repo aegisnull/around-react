@@ -1,7 +1,7 @@
 import edit from "../images/edit.svg";
 import post from "../images/post.svg";
 import api from "../utils/api";
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Card from "./Card";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
@@ -11,25 +11,18 @@ function Main({
   onEditAvatarClick,
   onCardClick,
 }) {
-  const [userName, setUserName] = React.useState("");
-  const [userDescription, setUserDescription] = React.useState("");
-  const [userAvatar, setUserAvatar] = React.useState("");
+  const [userInfo, setUserInfo] = useState({});
   const [cards, setCards] = React.useState([]);
 
   const currentUser = useContext(CurrentUserContext);
 
-  React.useEffect(() => {
-    api
-      .getUserInfo()
-      .then((data) => {
-        setUserName(data.name);
-        setUserDescription(data.about);
-        setUserAvatar(data.avatar);
-      })
-      .catch((err) => {
-        console.log("Error. La solicitud ha fallado");
-      });
-  }, []);
+  useEffect(() => {
+    setUserInfo({
+      name: currentUser.name,
+      about: currentUser.about,
+      avatar: currentUser.avatar,
+    });
+  }, [currentUser]);
 
   React.useEffect(() => {
     api
@@ -46,7 +39,11 @@ function Main({
     <main className="main__container">
       <section className="profile">
         <div className="profile__container-left">
-          <img className="profile__img" src={userAvatar} alt="Profile avatar" />
+          <img
+            className="profile__img"
+            src={userInfo.avatar}
+            alt="Profile avatar"
+          />
           <div className="profile__overlay">
             <span
               onClick={onEditAvatarClick}
@@ -56,7 +53,7 @@ function Main({
         </div>
         <div className="profile__container-middle">
           <div className="profile__subcontainer-top">
-            <h1 className="profile__name">{userName}</h1>
+            <h1 className="profile__name">{userInfo.name}</h1>
             <button
               className="profile__edit-button"
               onClick={onEditProfileClick}
@@ -69,7 +66,7 @@ function Main({
             </button>
           </div>
           <div className="profile__subcontainer-bottom">
-            <h2 className="profile__title">{userDescription}</h2>
+            <h2 className="profile__title">{userInfo.about}</h2>
           </div>
         </div>
         <div className="profile__container-right">
