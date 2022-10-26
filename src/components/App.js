@@ -2,7 +2,7 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import EditProfilePopup from "./EditProfilePopup";
-import NewCardPopup from "./NewCardPopup";
+import AddPlacePopup from "./AddPlacePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import React from "react";
 import ImagePopup from "./ImagePopup";
@@ -147,7 +147,7 @@ function App() {
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
         />
-        <NewCardPopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
+        <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}

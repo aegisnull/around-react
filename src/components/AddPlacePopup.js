@@ -1,6 +1,6 @@
 import PopupWithForm from "./PopupWithForm";
 
-function NewCardPopup({ isOpen, onClose }) {
+function AddPlacePopup({ isOpen, onClose }) {
   return (
     <PopupWithForm
       name="post"
@@ -37,4 +37,4 @@ function NewCardPopup({ isOpen, onClose }) {
   );
 }
 
-export default NewCardPopup;
+export default AddPlacePopup;
