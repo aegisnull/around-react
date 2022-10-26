@@ -2,7 +2,7 @@ import PopupWithForm from "./PopupWithForm";
 import React from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function EditProfilePopup({ isOpen, onClose }) {
+function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
   // Suscripción al contexto
   const currentUser = React.useContext(CurrentUserContext);
   const [name, setName] = React.useState("");
@@ -23,6 +23,14 @@ function EditProfilePopup({ isOpen, onClose }) {
     setDescription(e.target.value);
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    onUpdateUser({
+      name,
+      about: description,
+    });
+  }
+
   return (
     <PopupWithForm
       name="profile"
@@ -32,12 +40,13 @@ function EditProfilePopup({ isOpen, onClose }) {
       onClose={onClose}
       formSubmitText="Guardar"
       formSubmitClass="profile-edit"
+      onSubmit={handleSubmit}
     >
       <input
         className="modal__input modal__profile-name"
         id="edit-profile-name"
         type="text"
-        value={currentUser.name}
+        placeholder={currentUser.name}
         minLength="2"
         maxLength="40"
         onChange={handleNameChange}
@@ -50,7 +59,7 @@ function EditProfilePopup({ isOpen, onClose }) {
         className="modal__input modal__profile-title"
         id="edit-profile-title"
         type="text"
-        value={currentUser.about}
+        placeholder={currentUser.about}
         minLength="2"
         maxLength="200"
         onChange={handleDescriptionChange}

@@ -15,6 +15,7 @@ function PopupWithForm(props) {
           <button
             type="submit"
             className={`modal__form-submit modal__${props.formSubmitClass}`}
+            onClick={props.onSubmit}
           >
             {props.formSubmitText}
           </button>
