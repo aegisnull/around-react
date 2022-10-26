@@ -68,6 +68,18 @@ function App() {
       });
   }
 
+  function handleUpdateAvatar(avatar) {
+    api
+      .setUserAvatar(avatar)
+      .then((res) => {
+        setCurrentUser(res);
+        closeAllPopups();
+      })
+      .catch((err) => {
+        console.log("Error. La solicitud ha fallado");
+      });
+  }
+
   return (
     <div className="page__content">
       <CurrentUserContext.Provider value={currentUser}>
@@ -93,6 +105,7 @@ function App() {
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
+          onUpdateAvatar={handleUpdateAvatar}
         />
       </CurrentUserContext.Provider>
     </div>

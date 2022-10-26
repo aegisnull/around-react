@@ -72,6 +72,21 @@ class Api {
         return data;
       });
   }
+
+  //PATCH https://around.nomoreparties.co/v1/groupId/users/me/avatar
+  setUserAvatar({ avatar }) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: avatar,
+      }),
+    })
+      .then(this._checkResponse)
+      .then((data) => {
+        return data;
+      });
+  }
 }
 
 const api = new Api({
