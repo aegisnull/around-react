@@ -38,10 +38,9 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
         className="modal__input modal__profile-url"
         id="new-profile-url"
         type="url"
-        placeholder="Enlace a la imágen"
         ref={avatarRef}
         onChange={handleAvatarChange}
-        value={avatar}
+        placeholder={avatar}
         required
       />
       <span className="modal__error" id="new-profile-url-error">
