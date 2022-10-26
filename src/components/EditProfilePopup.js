@@ -15,6 +15,14 @@ function EditProfilePopup({ isOpen, onClose }) {
     setDescription(currentUser.about);
   }, [currentUser]);
 
+  function handleNameChange(e) {
+    setName(e.target.value);
+  }
+
+  function handleDescriptionChange(e) {
+    setDescription(e.target.value);
+  }
+
   return (
     <PopupWithForm
       name="profile"
@@ -29,9 +37,10 @@ function EditProfilePopup({ isOpen, onClose }) {
         className="modal__input modal__profile-name"
         id="edit-profile-name"
         type="text"
-        placeholder={currentUser.name}
+        value={currentUser.name}
         minLength="2"
         maxLength="40"
+        onChange={handleNameChange}
         required
       />
       <span className="modal__error" id="edit-profile-name-error">
@@ -41,9 +50,10 @@ function EditProfilePopup({ isOpen, onClose }) {
         className="modal__input modal__profile-title"
         id="edit-profile-title"
         type="text"
-        placeholder={currentUser.about}
+        value={currentUser.about}
         minLength="2"
         maxLength="200"
+        onChange={handleDescriptionChange}
         required
       />
       <span className="modal__error" id="edit-profile-title-error">
