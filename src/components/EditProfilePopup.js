@@ -1,6 +1,20 @@
 import PopupWithForm from "./PopupWithForm";
+import React from "react";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function EditProfilePopup({ isOpen, onClose }) {
+  // Suscripción al contexto
+  const currentUser = React.useContext(CurrentUserContext);
+  const [name, setName] = React.useState("");
+  const [description, setDescription] = React.useState("");
+
+  // Después de cargar el usuario actual desde la API
+  // sus datos serán usados en componentes gestionados.
+  React.useEffect(() => {
+    setName(currentUser.name);
+    setDescription(currentUser.about);
+  }, [currentUser]);
+
   return (
     <PopupWithForm
       name="profile"
@@ -15,7 +29,7 @@ function EditProfilePopup({ isOpen, onClose }) {
         className="modal__input modal__profile-name"
         id="edit-profile-name"
         type="text"
-        placeholder="username"
+        placeholder={currentUser.name}
         minLength="2"
         maxLength="40"
         required
@@ -27,7 +41,7 @@ function EditProfilePopup({ isOpen, onClose }) {
         className="modal__input modal__profile-title"
         id="edit-profile-title"
         type="text"
-        placeholder="usertitle"
+        placeholder={currentUser.about}
         minLength="2"
         maxLength="200"
         required
