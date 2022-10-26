@@ -87,6 +87,22 @@ class Api {
         return data;
       });
   }
+
+  //POST https://around.nomoreparties.co/v1/groupId/cards
+  addCard({ name, link }) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: name,
+        link: link,
+      }),
+    })
+      .then(this._checkResponse)
+      .then((data) => {
+        return data;
+      });
+  }
 }
 
 const api = new Api({
