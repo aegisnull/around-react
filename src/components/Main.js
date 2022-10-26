@@ -1,67 +1,30 @@
 import edit from "../images/edit.svg";
 import post from "../images/post.svg";
-import api from "../utils/api";
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import Card from "./Card";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import { CardsContext } from "../contexts/CardsContext";
 
 function Main({
   onEditProfileClick,
   onAddPlaceClick,
   onEditAvatarClick,
   onCardClick,
+  onCardLike,
+  onCardDelete,
 }) {
-  const [userInfo, setUserInfo] = useState({});
-  const [cards, setCards] = React.useState([]);
+  const [userInfo, setUserInfo] = React.useState({});
+  const cards = React.useContext(CardsContext);
 
-  const currentUser = useContext(CurrentUserContext);
+  const currentUser = React.useContext(CurrentUserContext);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setUserInfo({
       name: currentUser.name,
       about: currentUser.about,
       avatar: currentUser.avatar,
     });
   }, [currentUser]);
-
-  React.useEffect(() => {
-    api
-      .getInitialCards()
-      .then((data) => {
-        setCards(data);
-      })
-      .catch((err) => {
-        console.log("Error. La solicitud ha fallado");
-      });
-  }, []);
-
-  function handleCardLike(card) {
-    // Verifica una vez más si a esta tarjeta ya le han dado like
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
-
-    // Envía una petición a la API y obtén los datos actualizados de la tarjeta
-    api
-      .changeLikeCardStatus(card._id, !isLiked)
-      .then((newCard) => {
-        setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
-        );
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  function handleCardDelete(card) {
-    api
-      .deleteCard(card._id)
-      .then(() => {
-        setCards((state) => state.filter((c) => c._id !== card._id));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
 
   return (
     <main className="main__container">
@@ -109,8 +72,8 @@ function Main({
             cardData={card}
             onCardClick={onCardClick}
             key={card._id}
-            onCardLike={handleCardLike}
-            onCardDelete={handleCardDelete}
+            onCardLike={onCardLike}
+            onCardDelete={onCardDelete}
           />
         ))}
       </section>
