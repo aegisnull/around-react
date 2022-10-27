@@ -4,10 +4,8 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
   const currentUser = React.useContext(CurrentUserContext);
-  const [avatar, setAvatar] = React.useState("");
 
   const avatarRef = React.useRef();
-
   function handleSubmit(e) {
     e.preventDefault();
     onUpdateAvatar({
@@ -16,12 +14,8 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
   }
 
   function handleAvatarChange(e) {
-    setAvatar(e.target.value);
+    avatarRef.current.value = e.target.value;
   }
-
-  React.useEffect(() => {
-    setAvatar(currentUser.avatar);
-  }, [currentUser]);
 
   return (
     <PopupWithForm
@@ -40,7 +34,7 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
         type="url"
         ref={avatarRef}
         onChange={handleAvatarChange}
-        placeholder={avatar}
+        placeholder="URL de la imagen"
         required
       />
       <span className="modal__error" id="new-profile-url-error">
