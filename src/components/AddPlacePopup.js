@@ -18,6 +18,11 @@ function AddPlacePopup({ isOpen, onClose, onAddPlaceSubmit }) {
     onAddPlaceSubmit({ name: pictureName, link: pictureLink });
   }
 
+  React.useEffect(() => {
+    setPictureName("");
+    setPictureLink("");
+  }, [isOpen]);
+
   return (
     <PopupWithForm
       name="post"
