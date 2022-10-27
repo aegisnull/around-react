@@ -10,6 +10,7 @@ function PopupWithForm(props) {
         <form
           className={`modal__form modal__form_${props.name}`}
           name={props.formName}
+          onSubmit={props.onSubmit}
         >
           {props.children}
           <button
@@ -20,10 +21,7 @@ function PopupWithForm(props) {
             {props.formSubmitText}
           </button>
         </form>
-        <button
-          className={`modal__close-button modal__close_${props.name}`}
-          onClick={props.onClose}
-        />
+        <button className={`modal__close-button modal__close_${props.name}`} />
       </div>
     </div>
   );
