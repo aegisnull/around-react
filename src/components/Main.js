@@ -13,18 +13,9 @@ function Main({
   onCardLike,
   onCardDelete,
 }) {
-  const [userInfo, setUserInfo] = React.useState({});
   const cards = React.useContext(CardsContext);
 
   const currentUser = React.useContext(CurrentUserContext);
-
-  React.useEffect(() => {
-    setUserInfo({
-      name: currentUser.name,
-      about: currentUser.about,
-      avatar: currentUser.avatar,
-    });
-  }, [currentUser]);
 
   return (
     <main className="main__container">
@@ -32,7 +23,7 @@ function Main({
         <div className="profile__container-left">
           <img
             className="profile__img"
-            src={userInfo.avatar}
+            src={currentUser.avatar}
             alt="Profile avatar"
           />
           <div className="profile__overlay">
@@ -44,7 +35,7 @@ function Main({
         </div>
         <div className="profile__container-middle">
           <div className="profile__subcontainer-top">
-            <h1 className="profile__name">{userInfo.name}</h1>
+            <h1 className="profile__name">{currentUser.name}</h1>
             <button
               className="profile__edit-button"
               onClick={onEditProfileClick}
@@ -57,7 +48,7 @@ function Main({
             </button>
           </div>
           <div className="profile__subcontainer-bottom">
-            <h2 className="profile__title">{userInfo.about}</h2>
+            <h2 className="profile__title">{currentUser.about}</h2>
           </div>
         </div>
         <div className="profile__container-right">
