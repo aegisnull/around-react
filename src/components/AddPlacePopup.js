@@ -2,25 +2,20 @@ import PopupWithForm from "./PopupWithForm";
 import React from "react";
 
 function AddPlacePopup({ isOpen, onClose, onAddPlaceSubmit }) {
-  const [pictureName, setPictureName] = React.useState("");
-  const [pictureLink, setPictureLink] = React.useState("");
-
-  function handlePictureNameChange(e) {
-    setPictureName(e.target.value);
-  }
-
-  function handlePictureLinkChange(e) {
-    setPictureLink(e.target.value);
-  }
+  const nameRef = React.useRef();
+  const linkRef = React.useRef();
 
   function handleSubmit(e) {
     e.preventDefault();
-    onAddPlaceSubmit({ name: pictureName, link: pictureLink });
+    onAddPlaceSubmit({
+      name: nameRef.current.value,
+      link: linkRef.current.value,
+    });
   }
 
   React.useEffect(() => {
-    setPictureName("");
-    setPictureLink("");
+    nameRef.current.value = "";
+    linkRef.current.value = "";
   }, [isOpen]);
 
   return (
@@ -39,10 +34,9 @@ function AddPlacePopup({ isOpen, onClose, onAddPlaceSubmit }) {
         id="new-place-title"
         type="text"
         placeholder="Título"
-        value={pictureName}
-        onChange={handlePictureNameChange}
         minLength="2"
         maxLength="30"
+        ref={nameRef}
         required
       />
       <span className="modal__error" id="new-place-title-error">
@@ -53,8 +47,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlaceSubmit }) {
         id="new-place-url"
         type="url"
         placeholder="Enlace a la imágen"
-        value={pictureLink}
-        onChange={handlePictureLinkChange}
+        ref={linkRef}
         required
       />
       <span className="modal__error" id="new-place-url-error">
