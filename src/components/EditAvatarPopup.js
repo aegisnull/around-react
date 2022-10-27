@@ -10,10 +10,6 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
     });
   }
 
-  function handleAvatarChange(e) {
-    avatarRef.current.value = e.target.value;
-  }
-
   return (
     <PopupWithForm
       name="avatar"
@@ -30,7 +26,6 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
         id="new-profile-url"
         type="url"
         ref={avatarRef}
-        onChange={handleAvatarChange}
         placeholder="URL de la imagen"
         required
       />
