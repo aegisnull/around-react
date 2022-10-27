@@ -1,27 +1,36 @@
-function PopupWithForm(props) {
+function PopupWithForm({
+  name,
+  title,
+  formName,
+  isOpen,
+  onClose,
+  formSubmitClass,
+  formSubmitText,
+  onSubmit,
+  children,
+}) {
   return (
-    <div
-      className={`modal modal-${props.name} ${
-        props.isOpen ? "modal_active" : ""
-      }`}
-    >
+    <div className={`modal modal-${name} ${isOpen ? "modal_active" : ""}`}>
       <div className="modal__container">
-        <h2 className="modal__title">{props.title}</h2>
+        <h2 className="modal__title">{title}</h2>
         <form
-          className={`modal__form modal__form_${props.name}`}
-          name={props.formName}
-          onSubmit={props.onSubmit}
+          className={`modal__form modal__form_${name}`}
+          name={formName}
+          onSubmit={onSubmit}
         >
-          {props.children}
+          {children}
           <button
             type="submit"
-            className={`modal__form-submit modal__${props.formSubmitClass}`}
-            onClick={props.onSubmit}
+            className={`modal__form-submit modal__${formSubmitClass}`}
+            onClick={onSubmit}
           >
-            {props.formSubmitText}
+            {formSubmitText}
           </button>
         </form>
-        <button className={`modal__close-button modal__close_${props.name}`} />
+        <button
+          className={`modal__close-button modal__close_${name}`}
+          onClick={onClose}
+        />
       </div>
     </div>
   );
