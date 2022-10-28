@@ -46,7 +46,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         className="modal__input modal__profile-name"
         id="edit-profile-name"
         type="text"
-        value={name}
+        value={name || ""}
         minLength="2"
         maxLength="40"
         onChange={handleNameChange}
@@ -59,7 +59,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         className="modal__input modal__profile-title"
         id="edit-profile-title"
         type="text"
-        value={description}
+        value={description || ""}
         minLength="2"
         maxLength="200"
         onChange={handleDescriptionChange}
