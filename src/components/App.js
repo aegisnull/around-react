@@ -146,6 +146,18 @@ function App() {
     return () => document.removeEventListener("keydown", closeByEscape);
   }, []);
 
+  React.useEffect(() => {
+    const closeByClick = (e) => {
+      if (e.target.classList.contains("modal_active")) {
+        closeAllPopups();
+      }
+    };
+
+    document.addEventListener("click", closeByClick);
+
+    return () => document.removeEventListener("click", closeByClick);
+  }, []);
+
   return (
     <div className="page__content">
       <CurrentUserContext.Provider value={currentUser}>
