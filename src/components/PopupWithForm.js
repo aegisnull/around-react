@@ -22,7 +22,6 @@ function PopupWithForm({
           <button
             type="submit"
             className={`modal__form-submit modal__${formSubmitClass}`}
-            onClick={onSubmit}
           >
             {formSubmitText}
           </button>
