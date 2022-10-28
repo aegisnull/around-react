@@ -44,6 +44,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlaceSubmit }) {
         placeholder="Título"
         minLength="2"
         maxLength="30"
+        value={pictureName || ""}
         onChange={handlePictureNameChange}
         required
       />
@@ -55,6 +56,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlaceSubmit }) {
         id="new-place-url"
         type="url"
         placeholder="Enlace a la imágen"
+        value={pictureLink || ""}
         onChange={handlePictureLinkChange}
         required
       />
